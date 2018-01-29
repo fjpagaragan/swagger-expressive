@@ -16,7 +16,7 @@ use Reliv\SwaggerExpressive\Middleware\HttpApiSwaggerFactory;
 /**
  * @author James Jervis - https://github.com/jerv13
  */
-class ModuleConfig
+class ModuleConfigFactoriesAsConfig
 {
     /**
      * @return array
@@ -44,10 +44,6 @@ class ModuleConfig
                         'factory' => HttpApiSwaggerFactory::class,
                     ],
                 ],
-            ],
-
-            'swagger-expressive-is-swagger-route' => [
-                IsSwaggerRouteSwaggerKey::class => IsSwaggerRouteSwaggerKey::class,
             ],
         ];
     }

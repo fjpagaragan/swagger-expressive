@@ -2,6 +2,8 @@
 
 namespace Reliv\SwaggerExpressive;
 
+use Reliv\SwaggerExpressive\Api\IsSwaggerRouteSwaggerKey;
+
 /**
  * @author James Jervis - https://github.com/jerv13
  */
@@ -72,6 +74,9 @@ class ModuleConfigSwagger
                         ],
                     ],
                 ],
+            ],
+            'swagger-expressive-is-swagger-route' => [
+                IsSwaggerRouteSwaggerKey::class => IsSwaggerRouteSwaggerKey::class,
             ],
         ];
     }
