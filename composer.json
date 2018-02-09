@@ -2,7 +2,7 @@
   "name": "reliv/swagger-expressive",
   "description": "Easy Swagger endpoint using the Zend Expressive routes config",
   "type": "library",
-  "license": "BSD-3-Clause",
+  "license": "ISC",
   "keywords": [
     "reliv",
     "server",
