@@ -34,7 +34,7 @@ class ModuleConfigRoutes
                     'swagger' => [
                         'get' => [
                             'description' => 'Produces Swagger JSON',
-                            //'operationId' => 'zrcms.api.swagger.json',
+                            //'operationId' => 'api.swagger.json',
                             'produces' => [
                                 'application/json',
                             ],

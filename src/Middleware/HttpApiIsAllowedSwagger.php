@@ -12,7 +12,7 @@ use Zend\Diactoros\Response\JsonResponse;
  */
 class HttpApiIsAllowedSwagger
 {
-    const SOURCE = 'zrcms-is-allowed-check-api';
+    const SOURCE = 'swagger-is-allowed-check-api';
 
     const DEFAULT_NOT_ALLOWED_STATUS = 401;
 
