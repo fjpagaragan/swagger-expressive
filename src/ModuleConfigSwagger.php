@@ -75,6 +75,9 @@ class ModuleConfigSwagger
                     ],
                 ],
             ],
+            'swagger-expressive-build-swagger-config' => [
+                // EXAMPLE: BuildEntry::class => BuildEntry::class,
+            ],
             'swagger-expressive-is-swagger-route' => [
                 IsSwaggerRouteSwaggerKey::class => IsSwaggerRouteSwaggerKey::class,
             ],

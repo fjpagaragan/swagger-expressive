@@ -3,6 +3,7 @@
 namespace Reliv\SwaggerExpressive\Middleware;
 
 use Psr\Container\ContainerInterface;
+use Reliv\SwaggerExpressive\Api\BuildSwaggerConfig;
 use Reliv\SwaggerExpressive\Api\IsSwaggerRoute;
 
 /**
@@ -26,6 +27,7 @@ class HttpApiSwaggerFactory
             $appConfig,
             $appConfig['swagger-expressive'],
             $serviceContainer->get(IsSwaggerRoute::class),
+            $serviceContainer->get(BuildSwaggerConfig::class),
             false
         );
     }

@@ -2,6 +2,8 @@
 
 namespace Reliv\SwaggerExpressive;
 
+use Reliv\SwaggerExpressive\Api\BuildSwaggerConfig;
+use Reliv\SwaggerExpressive\Api\BuildSwaggerConfigCompositeFactory;
 use Reliv\SwaggerExpressive\Api\IsAllowedSwagger;
 use Reliv\SwaggerExpressive\Api\IsAllowedSwaggerAnyFactory;
 use Reliv\SwaggerExpressive\Api\IsSwaggerRoute;
@@ -26,6 +28,9 @@ class ModuleConfigFactoriesAsConfig
         return [
             'dependencies' => [
                 'config_factories' => [
+                    BuildSwaggerConfig::class => [
+                        'factory' => BuildSwaggerConfigCompositeFactory::class,
+                    ],
                     IsAllowedSwagger::class => [
                         // Over-ride this
                         'factory' => IsAllowedSwaggerAnyFactory::class,
