@@ -5,12 +5,15 @@ namespace Reliv\SwaggerExpressive\Middleware;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Reliv\SwaggerExpressive\Api\BuildRouteName;
+use Reliv\SwaggerExpressive\Api\BuildSwaggerConfig;
 use Reliv\SwaggerExpressive\Api\IsSwaggerRoute;
 use Reliv\SwaggerExpressive\ConfigKey;
 use Reliv\SwaggerExpressive\Options;
 use Zend\Diactoros\Response\JsonResponse;
 
 /**
+ * @todo Add caching
+ *
  * @author James Jervis - https://github.com/jerv13
  */
 class HttpApiSwagger
@@ -20,23 +23,27 @@ class HttpApiSwagger
     protected $appConfig;
     protected $swaggerConfig;
     protected $isSwaggerRoute;
+    protected $buildSwaggerConfig;
     protected $debug;
 
     /**
-     * @param array          $appConfig
-     * @param array          $swaggerConfig
-     * @param IsSwaggerRoute $isSwaggerRoute
-     * @param bool           $debug
+     * @param array              $appConfig
+     * @param array              $swaggerConfig
+     * @param IsSwaggerRoute     $isSwaggerRoute
+     * @param BuildSwaggerConfig $buildSwaggerConfig
+     * @param bool               $debug
      */
     public function __construct(
         array $appConfig,
         array $swaggerConfig,
         IsSwaggerRoute $isSwaggerRoute,
+        BuildSwaggerConfig $buildSwaggerConfig,
         bool $debug = false
     ) {
         $this->appConfig = $appConfig;
         $this->swaggerConfig = $swaggerConfig;
         $this->isSwaggerRoute = $isSwaggerRoute;
+        $this->buildSwaggerConfig = $buildSwaggerConfig;
         $this->debug = $debug;
     }
 
@@ -66,6 +73,10 @@ class HttpApiSwagger
 
         $this->swaggerConfig['paths'] = $this->buildSwaggerPaths(
             $routeConfig
+        );
+
+        $this->swaggerConfig = $this->buildSwaggerConfig->__invoke(
+            $this->swaggerConfig
         );
 
         return new JsonResponse(
