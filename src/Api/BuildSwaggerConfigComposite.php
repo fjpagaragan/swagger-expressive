@@ -35,16 +35,19 @@ class BuildSwaggerConfigComposite implements BuildSwaggerConfig
 
     /**
      * @param array $swaggerConfig
+     * @param array $options
      *
-     * @return array
+     * @return array $swaggerConfig
      */
     public function __invoke(
-        array $swaggerConfig
+        array $swaggerConfig,
+        array $options = []
     ): array {
         /** @var BuildSwaggerConfig $buildSwaggerConfig */
         foreach ($this->buildSwaggerConfigs as $buildSwaggerConfig) {
             $swaggerConfig = $buildSwaggerConfig->__invoke(
-                $swaggerConfig
+                $swaggerConfig,
+                $options
             );
         }
 

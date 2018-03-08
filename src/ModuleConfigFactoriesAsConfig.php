@@ -2,7 +2,11 @@
 
 namespace Reliv\SwaggerExpressive;
 
+use Reliv\SwaggerExpressive\Api\BuildPathParameters;
+use Reliv\SwaggerExpressive\Api\BuildPathParametersCurlyBracketsFactory;
 use Reliv\SwaggerExpressive\Api\BuildSwaggerConfig;
+use Reliv\SwaggerExpressive\Api\BuildSwaggerConfigBasic;
+use Reliv\SwaggerExpressive\Api\BuildSwaggerConfigBasicFactory;
 use Reliv\SwaggerExpressive\Api\BuildSwaggerConfigCompositeFactory;
 use Reliv\SwaggerExpressive\Api\IsAllowedSwagger;
 use Reliv\SwaggerExpressive\Api\IsAllowedSwaggerAnyFactory;
@@ -13,7 +17,7 @@ use Reliv\SwaggerExpressive\Api\IsSwaggerRouteSwaggerKeyFactory;
 use Reliv\SwaggerExpressive\Middleware\HttpApiIsAllowedSwagger;
 use Reliv\SwaggerExpressive\Middleware\HttpApiIsAllowedSwaggerFactory;
 use Reliv\SwaggerExpressive\Middleware\HttpApiSwagger;
-use Reliv\SwaggerExpressive\Middleware\HttpApiSwaggerFactory;
+use Reliv\SwaggerExpressive\Middleware\HttpApiSwaggerDebugFactory;
 
 /**
  * @author James Jervis - https://github.com/jerv13
@@ -28,8 +32,14 @@ class ModuleConfigFactoriesAsConfig
         return [
             'dependencies' => [
                 'config_factories' => [
+                    BuildPathParameters::class => [
+                        'factory' => BuildPathParametersCurlyBracketsFactory::class,
+                    ],
                     BuildSwaggerConfig::class => [
                         'factory' => BuildSwaggerConfigCompositeFactory::class,
+                    ],
+                    BuildSwaggerConfigBasic::class => [
+                        'factory' => BuildSwaggerConfigBasicFactory::class,
                     ],
                     IsAllowedSwagger::class => [
                         // Over-ride this
@@ -46,7 +56,7 @@ class ModuleConfigFactoriesAsConfig
                         'factory' => HttpApiIsAllowedSwaggerFactory::class,
                     ],
                     HttpApiSwagger::class => [
-                        'factory' => HttpApiSwaggerFactory::class,
+                        'factory' => HttpApiSwaggerDebugFactory::class,
                     ],
                 ],
             ],

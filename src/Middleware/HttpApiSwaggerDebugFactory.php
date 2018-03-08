@@ -9,7 +9,7 @@ use Reliv\SwaggerExpressive\Api\IsSwaggerRoute;
 /**
  * @author James Jervis - https://github.com/jerv13
  */
-class HttpApiSwaggerFactory
+class HttpApiSwaggerDebugFactory
 {
     /**
      * @param ContainerInterface $serviceContainer
@@ -28,7 +28,7 @@ class HttpApiSwaggerFactory
             $appConfig['swagger-expressive'],
             $serviceContainer->get(IsSwaggerRoute::class),
             $serviceContainer->get(BuildSwaggerConfig::class),
-            false
+            true
         );
     }
 }
