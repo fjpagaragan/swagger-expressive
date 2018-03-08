@@ -2,6 +2,7 @@
 
 namespace Reliv\SwaggerExpressive;
 
+use Reliv\SwaggerExpressive\Api\BuildSwaggerConfigBasic;
 use Reliv\SwaggerExpressive\Api\IsSwaggerRouteSwaggerKey;
 
 /**
@@ -76,7 +77,7 @@ class ModuleConfigSwagger
                 ],
             ],
             'swagger-expressive-build-swagger-config' => [
-                // EXAMPLE: BuildEntry::class => BuildEntry::class,
+                BuildSwaggerConfigBasic::class => BuildSwaggerConfigBasic::class,
             ],
             'swagger-expressive-is-swagger-route' => [
                 IsSwaggerRouteSwaggerKey::class => IsSwaggerRouteSwaggerKey::class,

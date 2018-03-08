@@ -2,7 +2,11 @@
 
 namespace Reliv\SwaggerExpressive;
 
+use Reliv\SwaggerExpressive\Api\BuildPathParameters;
+use Reliv\SwaggerExpressive\Api\BuildPathParametersCurlyBracketsFactory;
 use Reliv\SwaggerExpressive\Api\BuildSwaggerConfig;
+use Reliv\SwaggerExpressive\Api\BuildSwaggerConfigBasic;
+use Reliv\SwaggerExpressive\Api\BuildSwaggerConfigBasicFactory;
 use Reliv\SwaggerExpressive\Api\BuildSwaggerConfigCompositeFactory;
 use Reliv\SwaggerExpressive\Api\IsAllowedSwagger;
 use Reliv\SwaggerExpressive\Api\IsAllowedSwaggerAnyFactory;
@@ -28,7 +32,9 @@ class ModuleConfigZFServiceManager
         return [
             'dependencies' => [
                 'factories' => [
+                    BuildPathParameters::class => BuildPathParametersCurlyBracketsFactory::class,
                     BuildSwaggerConfig::class => BuildSwaggerConfigCompositeFactory::class,
+                    BuildSwaggerConfigBasic::class => BuildSwaggerConfigBasicFactory::class,
                     IsAllowedSwagger::class => IsAllowedSwaggerAnyFactory::class,
                     IsSwaggerRoute::class => IsSwaggerRouteCompositeFactory::class,
                     IsSwaggerRouteSwaggerKey::class => IsSwaggerRouteSwaggerKeyFactory::class,

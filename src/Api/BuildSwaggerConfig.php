@@ -7,12 +7,16 @@ namespace Reliv\SwaggerExpressive\Api;
  */
 interface BuildSwaggerConfig
 {
+    const OPTION_ROUTE_CONFIG = 'route-config';
+
     /**
      * @param array $swaggerConfig
+     * @param array $options
      *
      * @return array $swaggerConfig
      */
     public function __invoke(
-        array $swaggerConfig
+        array $swaggerConfig,
+        array $options = []
     ): array;
 }
