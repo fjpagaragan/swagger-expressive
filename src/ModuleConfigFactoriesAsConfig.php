@@ -16,8 +16,12 @@ use Reliv\SwaggerExpressive\Api\IsSwaggerRouteSwaggerKey;
 use Reliv\SwaggerExpressive\Api\IsSwaggerRouteSwaggerKeyFactory;
 use Reliv\SwaggerExpressive\Middleware\HttpApiIsAllowedSwagger;
 use Reliv\SwaggerExpressive\Middleware\HttpApiIsAllowedSwaggerFactory;
+use Reliv\SwaggerExpressive\Middleware\HttpApiIsAllowedSwaggerMiddleware;
+use Reliv\SwaggerExpressive\Middleware\HttpApiIsAllowedSwaggerMiddlewareFactory;
 use Reliv\SwaggerExpressive\Middleware\HttpApiSwagger;
 use Reliv\SwaggerExpressive\Middleware\HttpApiSwaggerDebugFactory;
+use Reliv\SwaggerExpressive\Middleware\HttpApiSwaggerRequestHandler;
+use Reliv\SwaggerExpressive\Middleware\HttpApiSwaggerRequestHandlerFactory;
 
 /**
  * @author James Jervis - https://github.com/jerv13
@@ -55,8 +59,15 @@ class ModuleConfigFactoriesAsConfig
                     HttpApiIsAllowedSwagger::class => [
                         'factory' => HttpApiIsAllowedSwaggerFactory::class,
                     ],
+                    HttpApiIsAllowedSwaggerMiddleware::class => [
+                        'factory' => HttpApiIsAllowedSwaggerMiddlewareFactory::class,
+                    ],
+
                     HttpApiSwagger::class => [
                         'factory' => HttpApiSwaggerDebugFactory::class,
+                    ],
+                    HttpApiSwaggerRequestHandler::class => [
+                        'factory' => HttpApiSwaggerRequestHandlerFactory::class,
                     ],
                 ],
             ],

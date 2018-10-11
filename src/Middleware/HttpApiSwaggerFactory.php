@@ -22,13 +22,17 @@ class HttpApiSwaggerFactory
         ContainerInterface $serviceContainer
     ) {
         $appConfig = $serviceContainer->get('config');
+        $debug = false;
+        if (array_key_exists('debug', $appConfig)) {
+            $debug = (bool)$appConfig['debug'];
+        }
 
         return new HttpApiSwagger(
             $appConfig['routes'],
             $appConfig['swagger-expressive'],
             $serviceContainer->get(IsSwaggerRoute::class),
             $serviceContainer->get(BuildSwaggerConfig::class),
-            false
+            $debug
         );
     }
 }

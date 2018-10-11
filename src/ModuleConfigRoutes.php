@@ -24,6 +24,7 @@ class ModuleConfigRoutes
                     'name' => 'docs.swagger.json',
                     'path' => '/docs/swagger.json',
                     'middleware' => [
+                        // @todo Use PSR7 services
                         'acl' => HttpApiIsAllowedSwagger::class,
                         'api' => HttpApiSwagger::class,
                     ],
