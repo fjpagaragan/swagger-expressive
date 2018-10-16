@@ -3,17 +3,18 @@
 namespace Reliv\SwaggerExpressive\Middleware;
 
 use Psr\Container\ContainerInterface;
-use Reliv\SwaggerExpressive\Api\IsAllowedSwagger;
+use Reliv\SwaggerExpressive\Api\BuildSwaggerConfig;
+use Reliv\SwaggerExpressive\Api\IsSwaggerRoute;
 
 /**
  * @author James Jervis - https://github.com/jerv13
  */
-class HttpApiIsAllowedSwaggerFactory
+class HttpApiSwaggerRequestHandlerFactory
 {
     /**
      * @param ContainerInterface $serviceContainer
      *
-     * @return HttpApiIsAllowedSwagger
+     * @return HttpApiSwaggerRequestHandler
      * @throws \Psr\Container\ContainerExceptionInterface
      * @throws \Psr\Container\NotFoundExceptionInterface
      */
@@ -21,15 +22,17 @@ class HttpApiIsAllowedSwaggerFactory
         ContainerInterface $serviceContainer
     ) {
         $appConfig = $serviceContainer->get('config');
+
         $debug = false;
         if (array_key_exists('debug', $appConfig)) {
             $debug = (bool)$appConfig['debug'];
         }
 
-        return new HttpApiIsAllowedSwagger(
-            $serviceContainer->get(IsAllowedSwagger::class),
-            [],
-            HttpApiIsAllowedSwagger::DEFAULT_NOT_ALLOWED_STATUS,
+        return new HttpApiSwaggerRequestHandler(
+            $appConfig['routes'],
+            $appConfig['swagger-expressive'],
+            $serviceContainer->get(IsSwaggerRoute::class),
+            $serviceContainer->get(BuildSwaggerConfig::class),
             $debug
         );
     }

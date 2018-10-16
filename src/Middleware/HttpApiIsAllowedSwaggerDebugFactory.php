@@ -23,7 +23,7 @@ class HttpApiIsAllowedSwaggerDebugFactory
         return new HttpApiIsAllowedSwagger(
             $serviceContainer->get(IsAllowedSwagger::class),
             [],
-            401,
+            HttpApiIsAllowedSwagger::DEFAULT_NOT_ALLOWED_STATUS,
             true
         );
     }

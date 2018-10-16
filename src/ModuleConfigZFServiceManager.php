@@ -16,8 +16,12 @@ use Reliv\SwaggerExpressive\Api\IsSwaggerRouteSwaggerKey;
 use Reliv\SwaggerExpressive\Api\IsSwaggerRouteSwaggerKeyFactory;
 use Reliv\SwaggerExpressive\Middleware\HttpApiIsAllowedSwagger;
 use Reliv\SwaggerExpressive\Middleware\HttpApiIsAllowedSwaggerFactory;
+use Reliv\SwaggerExpressive\Middleware\HttpApiIsAllowedSwaggerMiddleware;
+use Reliv\SwaggerExpressive\Middleware\HttpApiIsAllowedSwaggerMiddlewareFactory;
 use Reliv\SwaggerExpressive\Middleware\HttpApiSwagger;
 use Reliv\SwaggerExpressive\Middleware\HttpApiSwaggerFactory;
+use Reliv\SwaggerExpressive\Middleware\HttpApiSwaggerRequestHandler;
+use Reliv\SwaggerExpressive\Middleware\HttpApiSwaggerRequestHandlerFactory;
 
 /**
  * @author James Jervis - https://github.com/jerv13
@@ -39,7 +43,10 @@ class ModuleConfigZFServiceManager
                     IsSwaggerRoute::class => IsSwaggerRouteCompositeFactory::class,
                     IsSwaggerRouteSwaggerKey::class => IsSwaggerRouteSwaggerKeyFactory::class,
                     HttpApiIsAllowedSwagger::class => HttpApiIsAllowedSwaggerFactory::class,
-                    HttpApiSwagger::class => HttpApiSwaggerFactory::class
+                    HttpApiSwagger::class => HttpApiSwaggerFactory::class,
+
+                    HttpApiIsAllowedSwaggerMiddleware::class => HttpApiIsAllowedSwaggerMiddlewareFactory::class,
+                    HttpApiSwaggerRequestHandler::class => HttpApiSwaggerRequestHandlerFactory::class,
                 ],
             ],
         ];

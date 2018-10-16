@@ -8,12 +8,12 @@ use Reliv\SwaggerExpressive\Api\IsAllowedSwagger;
 /**
  * @author James Jervis - https://github.com/jerv13
  */
-class HttpApiIsAllowedSwaggerFactory
+class HttpApiIsAllowedSwaggerMiddlewareFactory
 {
     /**
      * @param ContainerInterface $serviceContainer
      *
-     * @return HttpApiIsAllowedSwagger
+     * @return HttpApiIsAllowedSwaggerMiddleware
      * @throws \Psr\Container\ContainerExceptionInterface
      * @throws \Psr\Container\NotFoundExceptionInterface
      */
@@ -26,10 +26,10 @@ class HttpApiIsAllowedSwaggerFactory
             $debug = (bool)$appConfig['debug'];
         }
 
-        return new HttpApiIsAllowedSwagger(
+        return new HttpApiIsAllowedSwaggerMiddleware(
             $serviceContainer->get(IsAllowedSwagger::class),
             [],
-            HttpApiIsAllowedSwagger::DEFAULT_NOT_ALLOWED_STATUS,
+            HttpApiIsAllowedSwaggerMiddleware::DEFAULT_NOT_ALLOWED_STATUS,
             $debug
         );
     }
