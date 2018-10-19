@@ -82,6 +82,11 @@ class BuildSwaggerConfigBasic implements BuildSwaggerConfig
                 $routeData
             );
 
+            if (array_key_exists($path, $swaggerPaths)) {
+                $swaggerPaths[$path] = array_merge($swaggerPaths[$path], $swaggerPathData);
+                continue;
+            }
+
             $swaggerPaths[$path] = $swaggerPathData;
         }
 
@@ -91,7 +96,7 @@ class BuildSwaggerConfigBasic implements BuildSwaggerConfig
     /**
      * @param string $name
      * @param string $path
-     * @param array  $routeData
+     * @param array $routeData
      *
      * @return array
      */
@@ -165,8 +170,6 @@ class BuildSwaggerConfigBasic implements BuildSwaggerConfig
                     ]
                 ]
             );
-
-
 
             $swaggerPathData[$allowedMethod] = $data;
         }
