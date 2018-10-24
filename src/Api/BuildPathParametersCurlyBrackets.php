@@ -41,8 +41,10 @@ class BuildPathParametersCurlyBrackets implements BuildPathParameters
             }
 
             $parameters[] = [
-                'name' => $parameterName,
                 'in' => 'path',
+                'name' => $parameterName,
+                // Per the spec: path parameters are always required
+                'required' => true,
             ];
         }
 
