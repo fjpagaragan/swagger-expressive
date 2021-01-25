@@ -24,7 +24,7 @@
     "psr/container": "^1.0",
     "psr/http-message": "^1.0",
     "psr/http-server-middleware": "^1.0",
-    "zendframework/zend-diactoros": "^1.3.10"
+    "laminas/laminas-diactoros": "^2.5"
   },
   "suggest": {
     "reliv/zf-config-factories": "3.* || 4.* "

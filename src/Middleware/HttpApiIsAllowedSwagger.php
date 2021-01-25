@@ -5,7 +5,7 @@ namespace Reliv\SwaggerExpressive\Middleware;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Reliv\SwaggerExpressive\Api\IsAllowedSwagger;
-use Zend\Diactoros\Response\JsonResponse;
+use Laminas\Diactoros\Response\JsonResponse;
 
 /**
  * @author James Jervis - https://github.com/jerv13
