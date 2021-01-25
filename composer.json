@@ -1,5 +1,5 @@
 {
-  "name": "reliv/swagger-expressive",
+  "name": "fjpagaragan/swagger-expressive",
   "description": "Easy Swagger endpoint using the Zend Expressive routes config",
   "type": "library",
   "license": "ISC",
