@@ -7,7 +7,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Reliv\SwaggerExpressive\Api\BuildSwaggerConfig;
 use Reliv\SwaggerExpressive\Api\IsSwaggerRoute;
-use Zend\Diactoros\Response\JsonResponse;
+use Laminas\Diactoros\Response\JsonResponse;
 
 /**
  * @todo   Add caching
